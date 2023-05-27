@@ -22,6 +22,9 @@ public class Attack : MonoBehaviour
             //Debug.Log("Attack!");
             lastAttackTime = Time.time;
 
+            attackAni.gameObject.transform.rotation = transform.rotation;
+            attackAni.gameObject.transform.Rotate(90f, 0f, 0f);
+            attackAni.gameObject.transform.position = attackBox.position;
             attackAni.SetTrigger("Attack");
 
             //Collider[] colliders = Physics.OverlapBox(attackBox.position, attackBox.localScale, attackBox.rotation);
