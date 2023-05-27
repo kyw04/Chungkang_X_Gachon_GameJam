@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : Rotation
+public class Attack : MonoBehaviour
 {
+    public Animator attackAni;
     public Transform attackBox;
     public float attackDelay = 1.5f;
 
@@ -18,11 +19,13 @@ public class Attack : Rotation
     {
         if (Input.GetButtonDown("Fire1") && lastAttackTime + attackDelay <= Time.time)
         {
-            Debug.Log("Attack!");
+            //Debug.Log("Attack!");
             lastAttackTime = Time.time;
 
+            attackAni.SetTrigger("Attack");
+
             //Collider[] colliders = Physics.OverlapBox(attackBox.position, attackBox.localScale, attackBox.rotation);
-            Collider[] colliders = Physics.OverlapBox(attackBox.position, attackBox.localScale / 2, attackBox.rotation);
+            Collider[] colliders = Physics.OverlapBox(attackBox.position, attackBox.localScale / 2, attackBox.rotation, LayerMask.GetMask("Enemy"));
             foreach (Collider collider in colliders)
             {
                 Debug.Log(collider.name);
@@ -37,6 +40,6 @@ public class Attack : Rotation
         Vector3 attackBoxPos = transform.position;
         attackBoxPos.y = 0;
         attackBoxPos += attackBox.localPosition;
-        Gizmos.DrawCube(attackBoxPos, attackBox.localScale);
+        Gizmos.DrawWireCube(attackBoxPos, attackBox.localScale);
     }
 }
