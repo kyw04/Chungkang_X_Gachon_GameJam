@@ -809,7 +809,7 @@ MonoBehaviour:
   - {fileID: 1782547020614007756, guid: 2bae804672aec1b428481a1f403ada86, type: 3}
   - {fileID: 1782547020614007756, guid: 0d93b0ecce75ce341bc29d03f98b37a8, type: 3}
   selectEnemy: 0
-  spawnSpeed: 1.5
+  spawnSpeed: 8
 --- !u!4 &587740143
 Transform:
   m_ObjectHideFlags: 0
@@ -1495,7 +1495,7 @@ MonoBehaviour:
   - {fileID: 1782547020614007756, guid: 2bae804672aec1b428481a1f403ada86, type: 3}
   - {fileID: 1782547020614007756, guid: 0d93b0ecce75ce341bc29d03f98b37a8, type: 3}
   selectEnemy: 0
-  spawnSpeed: 5
+  spawnSpeed: 8
 --- !u!4 &830868010
 Transform:
   m_ObjectHideFlags: 0
@@ -2693,7 +2693,7 @@ MonoBehaviour:
   - {fileID: 1782547020614007756, guid: 2bae804672aec1b428481a1f403ada86, type: 3}
   - {fileID: 1782547020614007756, guid: 0d93b0ecce75ce341bc29d03f98b37a8, type: 3}
   selectEnemy: 0
-  spawnSpeed: 5
+  spawnSpeed: 8
 --- !u!4 &1432555451
 Transform:
   m_ObjectHideFlags: 0
@@ -3268,7 +3268,7 @@ MonoBehaviour:
   - {fileID: 1782547020614007756, guid: 2bae804672aec1b428481a1f403ada86, type: 3}
   - {fileID: 1782547020614007756, guid: 0d93b0ecce75ce341bc29d03f98b37a8, type: 3}
   selectEnemy: 0
-  spawnSpeed: 5
+  spawnSpeed: 8
 --- !u!4 &1643862127
 Transform:
   m_ObjectHideFlags: 0
