@@ -6,11 +6,19 @@ using UnityEngine;
 
 public class EnemyHp : MonoBehaviour
 {
-    private float enemyHp;
+    public float enemyHp;
+    private Enemy enemy;
 
-    void Start()
+    private void Start()
     {
-        enemyHp = 100;
+        enemy = GetComponent<Enemy>();
     }
-    
+
+    private void Update()
+    {
+        if (enemyHp <= 0)
+        {
+            enemy.isLive = false;
+        }
+    }
 }

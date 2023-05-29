@@ -6,7 +6,9 @@ public class Attack : MonoBehaviour
 {
     public Animator attackAni;
     public Transform attackBox;
+    public float damage = 35f;
     public float attackDelay = 1.5f;
+    public float knockbackPower = 50f;
 
     private float lastAttackTime;
 
@@ -31,18 +33,22 @@ public class Attack : MonoBehaviour
             Collider[] colliders = Physics.OverlapBox(attackBox.position, attackBox.localScale / 2, attackBox.rotation, LayerMask.GetMask("Enemy"));
             foreach (Collider collider in colliders)
             {
-                Debug.Log(collider.name);
+                Enemy enemy = collider.GetComponent<Enemy>();
+                Vector3 dir = enemy.transform.position - transform.position;
+                enemy.rigid.AddForce(dir.normalized * knockbackPower, ForceMode.Impulse);
+                EnemyHp enemyHp = collider.GetComponent<EnemyHp>();
+                enemyHp.enemyHp -= damage;
             }
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.matrix = transform.localToWorldMatrix;
-        Vector3 attackBoxPos = transform.position;
-        attackBoxPos.y = 0;
-        attackBoxPos += attackBox.localPosition;
-        Gizmos.DrawWireCube(attackBoxPos, attackBox.localScale);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.matrix = transform.localToWorldMatrix;
+    //    Vector3 attackBoxPos = transform.position;
+    //    attackBoxPos.y = 0;
+    //    attackBoxPos += attackBox.localPosition;
+    //    Gizmos.DrawWireCube(attackBoxPos, attackBox.localScale);
+    //}
 }

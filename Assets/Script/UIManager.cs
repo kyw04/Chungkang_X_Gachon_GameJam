@@ -3,25 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public PlayerHp playerHp;
+    public Player player;
     public Image hpImage;
     public TextMeshProUGUI currentHpText;
     public TextMeshProUGUI maxHpText;
+    public GameObject gameover;
 
     private float startHp;
 
     private void Start()
     {
-        //startHp = playerHp.hp;
+        player = GameManager.instance.player;
+        startHp = player.hp;
     }
 
     private void Update()
     {
-        //hpImage.fillAmount = playerHp.hp / startHp;
-        //currentHpText.text = playerHp.hp.ToString("F0");
+        if (gameover.activeSelf == false && player.hp <= 0)
+        {
+            gameover.SetActive(true);
+            Time.timeScale = 0f;
+            return;
+        }
+
+        hpImage.fillAmount = player.hp / startHp;
+        currentHpText.text = player.hp.ToString("F0");
         maxHpText.text = startHp.ToString("F0");
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

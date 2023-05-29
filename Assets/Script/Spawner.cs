@@ -12,9 +12,10 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
+        selectEnemy = Random.Range(0, enemyPrefab.Length);
         if (lastSpawnTime + spawnSpeed <= Time.time)
         {
-            Debug.Log("Àû ¼ÒÈ¯ µÊ");
+            lastSpawnTime = Time.time;
             Instantiate(enemyPrefab[selectEnemy], transform.position, Quaternion.identity);
         }
     }
