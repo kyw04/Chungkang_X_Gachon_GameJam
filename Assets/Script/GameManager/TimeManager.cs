@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    private float currentTime; // 현재의 시간
+    public float currentTime; // 현재의 시간
     private float maxTime; // 최대 시간 == 5분
     private float overTime;
     private bool timeOver; // timeover라는 것을 표현하기 위한 bool변수입니다.

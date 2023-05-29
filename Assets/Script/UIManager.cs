@@ -11,7 +11,10 @@ public class UIManager : MonoBehaviour
     public Image hpImage;
     public TextMeshProUGUI currentHpText;
     public TextMeshProUGUI maxHpText;
+    public TextMeshProUGUI timeText;
     public GameObject gameover;
+
+    public TimeManager timeManager;
 
     private float startHp;
 
@@ -33,6 +36,8 @@ public class UIManager : MonoBehaviour
         hpImage.fillAmount = player.hp / startHp;
         currentHpText.text = player.hp.ToString("F0");
         maxHpText.text = startHp.ToString("F0");
+
+        timeText.text = timeManager.currentTime.ToString("F1");
     }
 
     public void Restart()
